@@ -13,5 +13,13 @@ namespace Allvis.Kaylee.Analyzer.Models
         {
             Entity = entity;
         }
+
+        public void ResolveReferences()
+        {
+            foreach (var fieldReference in FieldReferences)
+            {
+                fieldReference.Resolve(Entity.Schema.Ast);
+            }
+        }
     }
 }

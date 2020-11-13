@@ -1,9 +1,11 @@
 using Allvis.Kaylee.Analyzer.Tests.Fixtures;
 using System.Linq;
 using Xunit;
+using Xunit.Categories;
 
 namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
 {
+    [UnitTest]
     public class AstTest
     {
         [Fact]

@@ -26,5 +26,27 @@ namespace Allvis.Kaylee.Analyzer.Extensions
 
         public static Field Locate(this IEnumerable<Field> fields, string name)
             => fields.Single(f => f.Name == name);
+
+        public static bool IsAncestorOf(this Entity ancestor, Entity child)
+        {
+            if (ancestor == child)
+            {
+                throw new InvalidOperationException($"{nameof(ancestor)} can not be the same instance as {nameof(child)}.");
+            }
+            Entity entity = child;
+            while (entity != null)
+            {
+                var parent = entity.Parent;
+                if (parent != null)
+                {
+                    if (parent == ancestor)
+                    {
+                        return true;
+                    }
+                }
+                entity = parent;
+            }
+            return false;
+        }
     }
 }
