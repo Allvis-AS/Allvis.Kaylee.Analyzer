@@ -26,7 +26,7 @@ entity
 	: ENTITY IDENTIFIER OPEN_BLOCK entityBody CLOSE_BLOCK
 	;
 entityBody
-	: (fields | keys | mutations | entity)*
+	: (fields | entityKeys | mutations | entity)*
 	;
 
 fields
@@ -53,16 +53,17 @@ fieldParameterDefaultValue
 	| FIELD_PARAMETER_DEFAULT_FUNCTION OPEN_PAR CLOSE_PAR
 	;
 
-keys
-	: KEYS OPEN_BLOCK keysBody CLOSE_BLOCK
+// Due to "keys" being a reserved keyword, we need to name it something else.
+entityKeys
+	: KEYS OPEN_BLOCK entityKeysBody CLOSE_BLOCK
 	;
-keysBody
-	: (keyPrimary | keyReference)*
+entityKeysBody
+	: (entityKeyPrimary | entityKeyReference)*
 	;
-keyPrimary
+entityKeyPrimary
 	: PRIMARY ASSIGN identifierList SCOL
 	;
-keyReference
+entityKeyReference
 	: REFERENCE OPEN_PAR identifierList CLOSE_PAR ARROW qualified OPEN_PAR identifierList CLOSE_PAR SCOL
 	;
 

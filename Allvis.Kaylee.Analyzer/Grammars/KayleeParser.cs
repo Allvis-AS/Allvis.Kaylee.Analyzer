@@ -49,14 +49,14 @@ public partial class KayleeParser : Parser {
 		RULE_parse = 0, RULE_error = 1, RULE_schema = 2, RULE_schemaBody = 3, 
 		RULE_entity = 4, RULE_entityBody = 5, RULE_fields = 6, RULE_fieldsBody = 7, 
 		RULE_field = 8, RULE_fieldBody = 9, RULE_fieldParameterDefault = 10, RULE_fieldParameterDefaultValue = 11, 
-		RULE_keys = 12, RULE_keysBody = 13, RULE_keyPrimary = 14, RULE_keyReference = 15, 
-		RULE_mutations = 16, RULE_mutationsBody = 17, RULE_mutation = 18, RULE_qualified = 19, 
-		RULE_identifierList = 20;
+		RULE_entityKeys = 12, RULE_entityKeysBody = 13, RULE_entityKeyPrimary = 14, 
+		RULE_entityKeyReference = 15, RULE_mutations = 16, RULE_mutationsBody = 17, 
+		RULE_mutation = 18, RULE_qualified = 19, RULE_identifierList = 20;
 	public static readonly string[] ruleNames = {
 		"parse", "error", "schema", "schemaBody", "entity", "entityBody", "fields", 
 		"fieldsBody", "field", "fieldBody", "fieldParameterDefault", "fieldParameterDefaultValue", 
-		"keys", "keysBody", "keyPrimary", "keyReference", "mutations", "mutationsBody", 
-		"mutation", "qualified", "identifierList"
+		"entityKeys", "entityKeysBody", "entityKeyPrimary", "entityKeyReference", 
+		"mutations", "mutationsBody", "mutation", "qualified", "identifierList"
 	};
 
 	private static readonly string[] _LiteralNames = {
@@ -387,11 +387,11 @@ public partial class KayleeParser : Parser {
 		public FieldsContext fields(int i) {
 			return GetRuleContext<FieldsContext>(i);
 		}
-		public KeysContext[] abstractasbaseboolbreakbytecasecatchcharcheckedclassconstcontinuedecimaldefaultdelegatedodoubleelseenumeventexplicitexternfalsefinallyfixedfloatforforeachgotoifimplicitinintinterfaceinternalislocklongnamespacenewnullobjectoperatoroutoverrideparamsprivateprotectedpublicreadonlyrefreturnsbytesealedshortsizeofstackallocstaticstringstructswitchthisthrowtruetrytypeofuintulonguncheckedunsafeushortusingvirtualvaluesvoidvolatilewhile() {
-			return GetRuleContexts<KeysContext>();
+		public EntityKeysContext[] entityKeys() {
+			return GetRuleContexts<EntityKeysContext>();
 		}
-		public KeysContext abstractasbaseboolbreakbytecasecatchcharcheckedclassconstcontinuedecimaldefaultdelegatedodoubleelseenumeventexplicitexternfalsefinallyfixedfloatforforeachgotoifimplicitinintinterfaceinternalislocklongnamespacenewnullobjectoperatoroutoverrideparamsprivateprotectedpublicreadonlyrefreturnsbytesealedshortsizeofstackallocstaticstringstructswitchthisthrowtruetrytypeofuintulonguncheckedunsafeushortusingvirtualvaluesvoidvolatilewhile(int i) {
-			return GetRuleContext<KeysContext>(i);
+		public EntityKeysContext entityKeys(int i) {
+			return GetRuleContext<EntityKeysContext>(i);
 		}
 		public MutationsContext[] mutations() {
 			return GetRuleContexts<MutationsContext>();
@@ -443,7 +443,7 @@ public partial class KayleeParser : Parser {
 					break;
 				case KEYS:
 					{
-					State = 73; abstractasbaseboolbreakbytecasecatchcharcheckedclassconstcontinuedecimaldefaultdelegatedodoubleelseenumeventexplicitexternfalsefinallyfixedfloatforforeachgotoifimplicitinintinterfaceinternalislocklongnamespacenewnullobjectoperatoroutoverrideparamsprivateprotectedpublicreadonlyrefreturnsbytesealedshortsizeofstackallocstaticstringstructswitchthisthrowtruetrytypeofuintulonguncheckedunsafeushortusingvirtualvaluesvoidvolatilewhile();
+					State = 73; entityKeys();
 					}
 					break;
 				case MUTATIONS:
@@ -820,38 +820,38 @@ public partial class KayleeParser : Parser {
 		return _localctx;
 	}
 
-	public partial class KeysContext : ParserRuleContext {
+	public partial class EntityKeysContext : ParserRuleContext {
 		public ITerminalNode KEYS() { return GetToken(KayleeParser.KEYS, 0); }
 		public ITerminalNode OPEN_BLOCK() { return GetToken(KayleeParser.OPEN_BLOCK, 0); }
-		public KeysBodyContext keysBody() {
-			return GetRuleContext<KeysBodyContext>(0);
+		public EntityKeysBodyContext entityKeysBody() {
+			return GetRuleContext<EntityKeysBodyContext>(0);
 		}
 		public ITerminalNode CLOSE_BLOCK() { return GetToken(KayleeParser.CLOSE_BLOCK, 0); }
-		public KeysContext(ParserRuleContext parent, int invokingState)
+		public EntityKeysContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_keys; } }
+		public override int RuleIndex { get { return RULE_entityKeys; } }
 		public override void EnterRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.EnterKeys(this);
+			if (typedListener != null) typedListener.EnterEntityKeys(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.ExitKeys(this);
+			if (typedListener != null) typedListener.ExitEntityKeys(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public KeysContext abstractasbaseboolbreakbytecasecatchcharcheckedclassconstcontinuedecimaldefaultdelegatedodoubleelseenumeventexplicitexternfalsefinallyfixedfloatforforeachgotoifimplicitinintinterfaceinternalislocklongnamespacenewnullobjectoperatoroutoverrideparamsprivateprotectedpublicreadonlyrefreturnsbytesealedshortsizeofstackallocstaticstringstructswitchthisthrowtruetrytypeofuintulonguncheckedunsafeushortusingvirtualvaluesvoidvolatilewhile() {
-		KeysContext _localctx = new KeysContext(Context, State);
-		EnterRule(_localctx, 24, RULE_keys);
+	public EntityKeysContext entityKeys() {
+		EntityKeysContext _localctx = new EntityKeysContext(Context, State);
+		EnterRule(_localctx, 24, RULE_entityKeys);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
 			State = 122; Match(KEYS);
 			State = 123; Match(OPEN_BLOCK);
-			State = 124; keysBody();
+			State = 124; entityKeysBody();
 			State = 125; Match(CLOSE_BLOCK);
 			}
 		}
@@ -866,38 +866,38 @@ public partial class KayleeParser : Parser {
 		return _localctx;
 	}
 
-	public partial class KeysBodyContext : ParserRuleContext {
-		public KeyPrimaryContext[] keyPrimary() {
-			return GetRuleContexts<KeyPrimaryContext>();
+	public partial class EntityKeysBodyContext : ParserRuleContext {
+		public EntityKeyPrimaryContext[] entityKeyPrimary() {
+			return GetRuleContexts<EntityKeyPrimaryContext>();
 		}
-		public KeyPrimaryContext keyPrimary(int i) {
-			return GetRuleContext<KeyPrimaryContext>(i);
+		public EntityKeyPrimaryContext entityKeyPrimary(int i) {
+			return GetRuleContext<EntityKeyPrimaryContext>(i);
 		}
-		public KeyReferenceContext[] keyReference() {
-			return GetRuleContexts<KeyReferenceContext>();
+		public EntityKeyReferenceContext[] entityKeyReference() {
+			return GetRuleContexts<EntityKeyReferenceContext>();
 		}
-		public KeyReferenceContext keyReference(int i) {
-			return GetRuleContext<KeyReferenceContext>(i);
+		public EntityKeyReferenceContext entityKeyReference(int i) {
+			return GetRuleContext<EntityKeyReferenceContext>(i);
 		}
-		public KeysBodyContext(ParserRuleContext parent, int invokingState)
+		public EntityKeysBodyContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_keysBody; } }
+		public override int RuleIndex { get { return RULE_entityKeysBody; } }
 		public override void EnterRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.EnterKeysBody(this);
+			if (typedListener != null) typedListener.EnterEntityKeysBody(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.ExitKeysBody(this);
+			if (typedListener != null) typedListener.ExitEntityKeysBody(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public KeysBodyContext keysBody() {
-		KeysBodyContext _localctx = new KeysBodyContext(Context, State);
-		EnterRule(_localctx, 26, RULE_keysBody);
+	public EntityKeysBodyContext entityKeysBody() {
+		EntityKeysBodyContext _localctx = new EntityKeysBodyContext(Context, State);
+		EnterRule(_localctx, 26, RULE_entityKeysBody);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
@@ -912,12 +912,12 @@ public partial class KayleeParser : Parser {
 				switch (TokenStream.LA(1)) {
 				case PRIMARY:
 					{
-					State = 127; keyPrimary();
+					State = 127; entityKeyPrimary();
 					}
 					break;
 				case REFERENCE:
 					{
-					State = 128; keyReference();
+					State = 128; entityKeyReference();
 					}
 					break;
 				default:
@@ -941,32 +941,32 @@ public partial class KayleeParser : Parser {
 		return _localctx;
 	}
 
-	public partial class KeyPrimaryContext : ParserRuleContext {
+	public partial class EntityKeyPrimaryContext : ParserRuleContext {
 		public ITerminalNode PRIMARY() { return GetToken(KayleeParser.PRIMARY, 0); }
 		public ITerminalNode ASSIGN() { return GetToken(KayleeParser.ASSIGN, 0); }
 		public IdentifierListContext identifierList() {
 			return GetRuleContext<IdentifierListContext>(0);
 		}
 		public ITerminalNode SCOL() { return GetToken(KayleeParser.SCOL, 0); }
-		public KeyPrimaryContext(ParserRuleContext parent, int invokingState)
+		public EntityKeyPrimaryContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_keyPrimary; } }
+		public override int RuleIndex { get { return RULE_entityKeyPrimary; } }
 		public override void EnterRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.EnterKeyPrimary(this);
+			if (typedListener != null) typedListener.EnterEntityKeyPrimary(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.ExitKeyPrimary(this);
+			if (typedListener != null) typedListener.ExitEntityKeyPrimary(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public KeyPrimaryContext keyPrimary() {
-		KeyPrimaryContext _localctx = new KeyPrimaryContext(Context, State);
-		EnterRule(_localctx, 28, RULE_keyPrimary);
+	public EntityKeyPrimaryContext entityKeyPrimary() {
+		EntityKeyPrimaryContext _localctx = new EntityKeyPrimaryContext(Context, State);
+		EnterRule(_localctx, 28, RULE_entityKeyPrimary);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
@@ -987,7 +987,7 @@ public partial class KayleeParser : Parser {
 		return _localctx;
 	}
 
-	public partial class KeyReferenceContext : ParserRuleContext {
+	public partial class EntityKeyReferenceContext : ParserRuleContext {
 		public ITerminalNode REFERENCE() { return GetToken(KayleeParser.REFERENCE, 0); }
 		public ITerminalNode[] OPEN_PAR() { return GetTokens(KayleeParser.OPEN_PAR); }
 		public ITerminalNode OPEN_PAR(int i) {
@@ -1008,25 +1008,25 @@ public partial class KayleeParser : Parser {
 			return GetRuleContext<QualifiedContext>(0);
 		}
 		public ITerminalNode SCOL() { return GetToken(KayleeParser.SCOL, 0); }
-		public KeyReferenceContext(ParserRuleContext parent, int invokingState)
+		public EntityKeyReferenceContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
-		public override int RuleIndex { get { return RULE_keyReference; } }
+		public override int RuleIndex { get { return RULE_entityKeyReference; } }
 		public override void EnterRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.EnterKeyReference(this);
+			if (typedListener != null) typedListener.EnterEntityKeyReference(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IKayleeParserListener typedListener = listener as IKayleeParserListener;
-			if (typedListener != null) typedListener.ExitKeyReference(this);
+			if (typedListener != null) typedListener.ExitEntityKeyReference(this);
 		}
 	}
 
 	[RuleVersion(0)]
-	public KeyReferenceContext keyReference() {
-		KeyReferenceContext _localctx = new KeyReferenceContext(Context, State);
-		EnterRule(_localctx, 30, RULE_keyReference);
+	public EntityKeyReferenceContext entityKeyReference() {
+		EntityKeyReferenceContext _localctx = new EntityKeyReferenceContext(Context, State);
+		EnterRule(_localctx, 30, RULE_entityKeyReference);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
