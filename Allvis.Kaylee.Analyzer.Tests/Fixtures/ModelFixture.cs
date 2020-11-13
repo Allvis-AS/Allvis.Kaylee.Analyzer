@@ -65,7 +65,7 @@ schema tenant {
 
             entity Revision {
                 fields {
-                    RevisionNo  TEXT(10);
+                    RevisionNo  TEXT ( 10 );
                 }
 
                 keys {

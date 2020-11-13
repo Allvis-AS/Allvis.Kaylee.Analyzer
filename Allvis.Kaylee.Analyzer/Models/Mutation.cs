@@ -12,6 +12,8 @@ namespace Allvis.Kaylee.Analyzer.Models
         public Mutation(Entity entity)
         {
             Entity = entity;
+
+            entity.Mutations.Add(this);
         }
 
         public void ResolveReferences()

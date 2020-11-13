@@ -1,6 +1,5 @@
 ﻿using Allvis.Kaylee.Analyzer.Models;
 using Antlr4.Runtime.Misc;
-using System;
 
 namespace Allvis.Kaylee.Analyzer.Listeners
 {
@@ -15,7 +14,6 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             {
                 var schemaListener = new SchemaListener(Ast);
                 schema.EnterRule(schemaListener);
-                Ast.Schemata.Add(schemaListener.Schema);
             }
             ResolveFieldReferences();
         }

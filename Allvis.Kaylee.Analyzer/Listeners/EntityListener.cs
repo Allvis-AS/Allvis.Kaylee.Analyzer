@@ -1,6 +1,5 @@
 ﻿using Allvis.Kaylee.Analyzer.Models;
 using Antlr4.Runtime.Misc;
-using System;
 using System.Linq;
 
 namespace Allvis.Kaylee.Analyzer.Listeners
@@ -32,20 +31,48 @@ namespace Allvis.Kaylee.Analyzer.Listeners
 
         private void VisitFields(KayleeParser.EntityBodyContext entityBody)
         {
-            // TODO
-            throw new NotImplementedException();
+            // This nesting is caused by the fact that there can be multiple
+            // "fields" blocks in a single entity, so we have to dive 2
+            // levels deep.
+            var fieldsBodies = entityBody.fields().Select(f => f.fieldsBody());
+            foreach (var body in fieldsBodies)
+            {
+                var fields = body.field();
+                foreach (var field in fields)
+                {
+                    var fieldListener = new FieldListener(Entity);
+                    field.EnterRule(fieldListener);
+                }
+            }
         }
 
         private void VisitKeys(KayleeParser.EntityBodyContext entityBody)
         {
-            // TODO
-            throw new NotImplementedException();
+            // This nesting is caused by the fact that there can be multiple
+            // "keys" blocks in a single entity, so we have to dive 2
+            // levels deep.
+            var keysBodies = entityBody.entityKeys().Select(k => k.entityKeysBody());
+            foreach (var body in keysBodies)
+            {
+                var primaryKeys = body.entityKeyPrimary();
+                foreach (var key in primaryKeys)
+                {
+                    var keyListener = new PrimaryKeyListener(Entity);
+                    key.EnterRule(keyListener);
+                }
+                var referenceKeys = body.entityKeyReference();
+                foreach (var key in referenceKeys)
+                {
+                    var keyListener = new PrimaryKeyListener(Entity);
+                    key.EnterRule(keyListener);
+                }
+            }
         }
 
         private void VisitMutations(KayleeParser.EntityBodyContext entityBody)
         {
             // This nesting is caused by the fact that there can be multiple
-            // "mutations" blocks in a single entity, so we have to dive two
+            // "mutations" blocks in a single entity, so we have to dive 2
             // levels deep.
             var mutationsBodies = entityBody.mutations().Select(m => m.mutationsBody());
             foreach (var body in mutationsBodies)
@@ -55,7 +82,6 @@ namespace Allvis.Kaylee.Analyzer.Listeners
                 {
                     var mutationListener = new MutationListener(Entity);
                     mutation.EnterRule(mutationListener);
-                    Entity.Mutations.Add(mutationListener.Mutation);
                 }
             }
         }
@@ -67,7 +93,6 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             {
                 var entityListener = new EntityListener(Entity.Schema, Entity);
                 entity.EnterRule(entityListener);
-                Entity.Children.Add(entityListener.Entity);
             }
         }
     }
