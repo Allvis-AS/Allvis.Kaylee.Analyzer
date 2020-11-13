@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Allvis.Kaylee.Analyzer</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Sindre van der Linden</Authors>
+    <Company>Allvis AS</Company>
+    <Description>Parses the Kaylee model files and generates the corresponding AST. Usually acts as the baseline for other tools like code generators.</Description>
+    <PackageTags>Kaylee;DSL;Model;Analyzer</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Grammars\*.g4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Grammars\*.tokens" />
+    <None Remove="Grammars\*.interp" />
+  </ItemGroup>
+
+</Project>

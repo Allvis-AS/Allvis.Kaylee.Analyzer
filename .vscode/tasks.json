@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Allvis.Kaylee.Analyzer.Tests/Allvis.Kaylee.Analyzer.Tests.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Allvis.Kaylee.Analyzer.Tests/Allvis.Kaylee.Analyzer.Tests.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/Allvis.Kaylee.Analyzer.Tests/Allvis.Kaylee.Analyzer.Tests.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "generate parser",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-jar",
+                "C:/antlr/antlr-4.8-complete.jar",
+                "-Dlanguage=CSharp",
+                "KayleeLexer.g4",
+                "KayleeParser.g4"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/Allvis.Kaylee.Analyzer/Grammars"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
