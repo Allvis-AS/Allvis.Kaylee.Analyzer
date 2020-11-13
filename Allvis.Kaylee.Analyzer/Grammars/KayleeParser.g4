@@ -36,10 +36,7 @@ fieldsBody
 	: (field)*
 	;
 field
-	: IDENTIFIER QUESTION_MARK? DTYPE (
-		OPEN_BLOCK fieldBody CLOSE_BLOCK
-		| SCOL
-	)
+	: IDENTIFIER QUESTION_MARK? dtype (OPEN_BLOCK fieldBody CLOSE_BLOCK | SCOL)
 	;
 fieldBody
 	: (fieldParameterDefault)*
@@ -83,4 +80,15 @@ qualified
 
 identifierList
 	: IDENTIFIER (COMMA IDENTIFIER)*
+	;
+
+dtype
+	: DTYPE_BIT
+	| DTYPE_TINYINT
+	| DTYPE_INT (AUTO INCREMENT)?
+	| DTYPE_CHAR
+	| DTYPE_TEXT OPEN_PAR (UNSIGNED_INTEGER | MAX) CLOSE_PAR
+	| DTYPE_GUID
+	| DTYPE_DATE
+	| DTYPE_ROWVERSION
 	;

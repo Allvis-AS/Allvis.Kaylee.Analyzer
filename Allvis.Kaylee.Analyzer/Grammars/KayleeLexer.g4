@@ -34,16 +34,6 @@ HEX_NUMBER
 	: HEX_PREFIX HEX_DIGIT+
 	;
 
-DTYPE
-	: DTYPE_BIT
-	| DTYPE_TINYINT
-	| DTYPE_INT
-	| DTYPE_CHAR
-	| DTYPE_TEXT
-	| DTYPE_GUID
-	| DTYPE_DATE
-	| DTYPE_ROWVERSION
-	;
 DTYPE_BIT
 	: 'BIT'
 	;
@@ -51,13 +41,13 @@ DTYPE_TINYINT
 	: 'TINYINT'
 	;
 DTYPE_INT
-	: 'INT' AUTO_INCREMENT?
+	: 'INT'
 	;
 DTYPE_CHAR
 	: 'CHAR'
 	;
 DTYPE_TEXT
-	: 'TEXT' '(' (UNSIGNED_INTEGER | MAX) ')'
+	: 'TEXT'
 	;
 DTYPE_GUID
 	: 'GUID'
@@ -100,8 +90,11 @@ REFERENCE
 	: 'reference'
 	;
 
-AUTO_INCREMENT
-	: 'AUTO' 'INCREMENT'
+AUTO
+	: 'AUTO'
+	;
+INCREMENT
+	: 'INCREMENT'
 	;
 MAX
 	: 'MAX'
@@ -162,7 +155,7 @@ MULTI_LINE_COMMENT
 	: '/*' .*? '*/' -> skip
 	;
 WHITESPACE
-	: [ \t\r\n\u000C]+ -> skip
+	: WS -> skip
 	;
 
 // Unexpected characters, used for error rule
@@ -193,4 +186,8 @@ fragment LETTER
 	;
 fragment DIGIT
 	: [0-9]
+	;
+
+fragment WS
+	: [ \t\r\n\u000C]+
 	;

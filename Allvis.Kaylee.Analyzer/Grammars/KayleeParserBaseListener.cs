@@ -179,53 +179,53 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitFieldParameterDefaultValue([NotNull] KayleeParser.FieldParameterDefaultValueContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keys"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeys"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterKeys([NotNull] KayleeParser.KeysContext context) { }
+	public virtual void EnterEntityKeys([NotNull] KayleeParser.EntityKeysContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keys"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeys"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitKeys([NotNull] KayleeParser.KeysContext context) { }
+	public virtual void ExitEntityKeys([NotNull] KayleeParser.EntityKeysContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keysBody"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeysBody"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterKeysBody([NotNull] KayleeParser.KeysBodyContext context) { }
+	public virtual void EnterEntityKeysBody([NotNull] KayleeParser.EntityKeysBodyContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keysBody"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeysBody"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitKeysBody([NotNull] KayleeParser.KeysBodyContext context) { }
+	public virtual void ExitEntityKeysBody([NotNull] KayleeParser.EntityKeysBodyContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keyPrimary"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyPrimary"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterKeyPrimary([NotNull] KayleeParser.KeyPrimaryContext context) { }
+	public virtual void EnterEntityKeyPrimary([NotNull] KayleeParser.EntityKeyPrimaryContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keyPrimary"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeyPrimary"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitKeyPrimary([NotNull] KayleeParser.KeyPrimaryContext context) { }
+	public virtual void ExitEntityKeyPrimary([NotNull] KayleeParser.EntityKeyPrimaryContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keyReference"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyReference"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterKeyReference([NotNull] KayleeParser.KeyReferenceContext context) { }
+	public virtual void EnterEntityKeyReference([NotNull] KayleeParser.EntityKeyReferenceContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keyReference"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeyReference"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitKeyReference([NotNull] KayleeParser.KeyReferenceContext context) { }
+	public virtual void ExitEntityKeyReference([NotNull] KayleeParser.EntityKeyReferenceContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.mutations"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -286,6 +286,18 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIdentifierList([NotNull] KayleeParser.IdentifierListContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtype([NotNull] KayleeParser.DtypeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtype([NotNull] KayleeParser.DtypeContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>
