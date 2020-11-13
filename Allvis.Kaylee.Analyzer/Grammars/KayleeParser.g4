@@ -36,7 +36,7 @@ fieldsBody
 	: (field)*
 	;
 field
-	: IDENTIFIER NULLABILITY_MODIFIER? DTYPE (
+	: IDENTIFIER QUESTION_MARK? DTYPE (
 		OPEN_BLOCK fieldBody CLOSE_BLOCK
 		| SCOL
 	)
