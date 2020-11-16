@@ -2,12 +2,14 @@
 
   <PropertyGroup>
     <PackageId>Allvis.Kaylee.Analyzer</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors>Sindre van der Linden</Authors>
     <Company>Allvis AS</Company>
     <Description>Parses the Kaylee model files and generates the corresponding AST. Usually acts as the baseline for other tools like code generators.</Description>
     <PackageTags>Kaylee;DSL;Model;Analyzer</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Allvis-AS/Allvis.Kaylee.Analyzer.git</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup>
