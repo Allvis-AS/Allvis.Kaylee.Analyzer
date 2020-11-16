@@ -63,7 +63,7 @@ namespace Allvis.Kaylee.Analyzer.Listeners
                 var referenceKeys = body.entityKeyReference();
                 foreach (var key in referenceKeys)
                 {
-                    var keyListener = new PrimaryKeyListener(Entity);
+                    var keyListener = new ReferenceKeyListener(Entity);
                     key.EnterRule(keyListener);
                 }
             }

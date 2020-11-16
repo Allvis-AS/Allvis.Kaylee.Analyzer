@@ -298,6 +298,30 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDtype([NotNull] KayleeParser.DtypeContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeIntAutoIncrement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeIntAutoIncrement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

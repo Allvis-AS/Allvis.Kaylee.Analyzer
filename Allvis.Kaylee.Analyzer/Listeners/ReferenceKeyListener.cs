@@ -26,8 +26,8 @@ namespace Allvis.Kaylee.Analyzer.Listeners
                 ? targetEntity.IDENTIFIER(0).GetText() // Absolute path
                 : Entity.Schema.Name; // Relative to current entity
             var targetEntityPath = isFullyQualified
-                ? targetEntity.IDENTIFIER().Select(i => i.GetText()) // Absolute path
-                : Entity.Path.Concat(targetEntity.IDENTIFIER().Skip(1).Select(i => i.GetText())); // Relative to current entity
+                ? targetEntity.IDENTIFIER().Skip(1).Select(i => i.GetText()) // Absolute path
+                : Entity.Path.Concat(targetEntity.IDENTIFIER().Select(i => i.GetText())); // Relative to current entity
 
             var reference = new Reference();
             foreach (var identifier in sourceIdentifiers)

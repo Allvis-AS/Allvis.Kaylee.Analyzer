@@ -97,6 +97,10 @@ namespace Allvis.Kaylee.Analyzer.Models
             {
                 mutation.ResolveReferences();
             }
+            foreach (var child in Children)
+            {
+                child.ResolveReferences();
+            }
         }
     }
 }

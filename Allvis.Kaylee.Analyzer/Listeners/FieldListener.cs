@@ -40,7 +40,7 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             else if (dtype.DTYPE_INT() != null)
             {
                 Field.Type = FieldType.INT;
-                Field.AutoIncrement = dtype.AUTO() != null && dtype.INCREMENT() != null;
+                Field.AutoIncrement = dtype.dtypeIntAutoIncrement() != null;
             }
             else if (dtype.DTYPE_CHAR() != null)
             {
@@ -49,13 +49,14 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             else if (dtype.DTYPE_TEXT() != null)
             {
                 Field.Type = FieldType.TEXT;
-                if (dtype.MAX() != null)
+                var size = dtype.dtypeTextSize().GetText();
+                if (size == "MAX")
                 {
                     Field.Size = FieldSize.ForMax();
                 }
                 else
                 {
-                    Field.Size = FieldSize.ForSize(long.Parse(dtype.UNSIGNED_INTEGER().GetText()));
+                    Field.Size = FieldSize.ForSize(long.Parse(size));
                 }
             }
             else if (dtype.DTYPE_GUID() != null)

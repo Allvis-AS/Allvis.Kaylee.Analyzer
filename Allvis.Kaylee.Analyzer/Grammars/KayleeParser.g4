@@ -85,10 +85,19 @@ identifierList
 dtype
 	: DTYPE_BIT
 	| DTYPE_TINYINT
-	| DTYPE_INT (AUTO INCREMENT)?
+	| DTYPE_INT dtypeIntAutoIncrement?
 	| DTYPE_CHAR
-	| DTYPE_TEXT OPEN_PAR (UNSIGNED_INTEGER | MAX) CLOSE_PAR
+	| DTYPE_TEXT OPEN_PAR dtypeTextSize CLOSE_PAR
 	| DTYPE_GUID
 	| DTYPE_DATE
 	| DTYPE_ROWVERSION
+	;
+
+dtypeIntAutoIncrement
+	: AUTO INCREMENT
+	;
+
+dtypeTextSize
+	: UNSIGNED_INTEGER
+	| MAX
 	;

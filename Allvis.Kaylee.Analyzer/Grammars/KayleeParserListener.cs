@@ -250,4 +250,24 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDtype([NotNull] KayleeParser.DtypeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeIntAutoIncrement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeIntAutoIncrement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context);
 }
