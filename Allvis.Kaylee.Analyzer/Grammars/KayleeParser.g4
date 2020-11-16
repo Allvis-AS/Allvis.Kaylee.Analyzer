@@ -26,7 +26,7 @@ entity
 	: ENTITY IDENTIFIER OPEN_BLOCK entityBody CLOSE_BLOCK
 	;
 entityBody
-	: (fields | keys | mutations | entity)*
+	: (fields | entityKeys | mutations | entity)*
 	;
 
 fields
@@ -36,10 +36,7 @@ fieldsBody
 	: (field)*
 	;
 field
-	: IDENTIFIER NULLABILITY_MODIFIER? DTYPE (
-		OPEN_BLOCK fieldBody CLOSE_BLOCK
-		| SCOL
-	)
+	: IDENTIFIER QUESTION_MARK? dtype (OPEN_BLOCK fieldBody CLOSE_BLOCK | SCOL)
 	;
 fieldBody
 	: (fieldParameterDefault)*
@@ -53,16 +50,17 @@ fieldParameterDefaultValue
 	| FIELD_PARAMETER_DEFAULT_FUNCTION OPEN_PAR CLOSE_PAR
 	;
 
-keys
-	: KEYS OPEN_BLOCK keysBody CLOSE_BLOCK
+// Due to "keys" being a reserved keyword, we need to name it something else.
+entityKeys
+	: KEYS OPEN_BLOCK entityKeysBody CLOSE_BLOCK
 	;
-keysBody
-	: (keyPrimary | keyReference)*
+entityKeysBody
+	: (entityKeyPrimary | entityKeyReference)*
 	;
-keyPrimary
+entityKeyPrimary
 	: PRIMARY ASSIGN identifierList SCOL
 	;
-keyReference
+entityKeyReference
 	: REFERENCE OPEN_PAR identifierList CLOSE_PAR ARROW qualified OPEN_PAR identifierList CLOSE_PAR SCOL
 	;
 
@@ -82,4 +80,24 @@ qualified
 
 identifierList
 	: IDENTIFIER (COMMA IDENTIFIER)*
+	;
+
+dtype
+	: DTYPE_BIT
+	| DTYPE_TINYINT
+	| DTYPE_INT dtypeIntAutoIncrement?
+	| DTYPE_CHAR
+	| DTYPE_TEXT OPEN_PAR dtypeTextSize CLOSE_PAR
+	| DTYPE_GUID
+	| DTYPE_DATE
+	| DTYPE_ROWVERSION
+	;
+
+dtypeIntAutoIncrement
+	: AUTO INCREMENT
+	;
+
+dtypeTextSize
+	: UNSIGNED_INTEGER
+	| MAX
 	;

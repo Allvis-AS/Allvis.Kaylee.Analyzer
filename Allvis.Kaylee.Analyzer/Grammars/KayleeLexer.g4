@@ -1,10 +1,6 @@
 lexer grammar KayleeLexer
 	;
 
-IDENTIFIER
-	: IDENTIFIER_START IDENTIFIER_PART*
-	;
-
 NUMERIC_LITERAL
 	: INTEGER
 	| FLOAT
@@ -13,46 +9,6 @@ NUMERIC_LITERAL
 
 STRING_LITERAL
 	: '\'' (~'\'' | '\'\'')* '\''
-	;
-
-FIELD_PARAMETER_DEFAULT_FUNCTION
-	: 'NEWID'
-	| 'SYSDATETIMEOFFSET'
-	;
-
-DTYPE
-	: DTYPE_BIT
-	| DTYPE_TINYINT
-	| DTYPE_INT
-	| DTYPE_CHAR
-	| DTYPE_TEXT
-	| DTYPE_GUID
-	| DTYPE_DATE
-	| DTYPE_GUID
-	;
-DTYPE_BIT
-	: 'BIT'
-	;
-DTYPE_TINYINT
-	: 'TINYINT'
-	;
-DTYPE_INT
-	: 'INT' AUTO_INCREMENT?
-	;
-DTYPE_CHAR
-	: 'CHAR'
-	;
-DTYPE_TEXT
-	: 'TEXT' '(' (UNSIGNED_INTEGER | MAX) ')'
-	;
-DTYPE_GUID
-	: 'GUID'
-	;
-DTYPE_DATE
-	: 'DATE'
-	;
-DTYPE_ROWVERSION
-	: 'ROWVERSION'
 	;
 
 BOOLEAN
@@ -76,6 +32,36 @@ UNSIGNED_FLOAT
 
 HEX_NUMBER
 	: HEX_PREFIX HEX_DIGIT+
+	;
+
+DTYPE_BIT
+	: 'BIT'
+	;
+DTYPE_TINYINT
+	: 'TINYINT'
+	;
+DTYPE_INT
+	: 'INT'
+	;
+DTYPE_CHAR
+	: 'CHAR'
+	;
+DTYPE_TEXT
+	: 'TEXT'
+	;
+DTYPE_GUID
+	: 'GUID'
+	;
+DTYPE_DATE
+	: 'DATE'
+	;
+DTYPE_ROWVERSION
+	: 'ROWVERSION'
+	;
+
+FIELD_PARAMETER_DEFAULT_FUNCTION
+	: 'NEWID'
+	| 'SYSDATETIMEOFFSET'
 	;
 
 SCHEMA
@@ -104,14 +90,14 @@ REFERENCE
 	: 'reference'
 	;
 
-AUTO_INCREMENT
-	: 'AUTO' 'INCREMENT'
+AUTO
+	: 'AUTO'
+	;
+INCREMENT
+	: 'INCREMENT'
 	;
 MAX
 	: 'MAX'
-	;
-NULLABILITY_MODIFIER
-	: '?'
 	;
 TRUE
 	: 'true'
@@ -147,11 +133,18 @@ ASSIGN
 MINUS
 	: '-'
 	;
+QUESTION_MARK
+	: '?'
+	;
 SCHEMA_ACCESSOR
 	: '::'
 	;
 ARROW
 	: '=>'
+	;
+
+IDENTIFIER
+	: IDENTIFIER_START IDENTIFIER_PART*
 	;
 
 // Comments and whitespace
@@ -162,7 +155,7 @@ MULTI_LINE_COMMENT
 	: '/*' .*? '*/' -> skip
 	;
 WHITESPACE
-	: [ \t\r\n\u000C]+ -> skip
+	: WS -> skip
 	;
 
 // Unexpected characters, used for error rule
@@ -193,4 +186,8 @@ fragment LETTER
 	;
 fragment DIGIT
 	: [0-9]
+	;
+
+fragment WS
+	: [ \t\r\n\u000C]+
 	;

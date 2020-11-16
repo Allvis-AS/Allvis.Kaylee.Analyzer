@@ -14,7 +14,10 @@ namespace Allvis.Kaylee.Analyzer.Models
 
         public void Resolve(Ast ast)
         {
-            ResolvedField = ast.Locate(SchemaName, EntityPath, FieldName);
+            if (!IsResolved)
+            {
+                ResolvedField = ast.Locate(SchemaName, EntityPath, FieldName);
+            }
         }
     }
 }

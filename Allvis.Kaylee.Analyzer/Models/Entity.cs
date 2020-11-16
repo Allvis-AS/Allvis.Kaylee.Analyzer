@@ -1,9 +1,8 @@
 using Allvis.Kaylee.Analyzer.Exceptions;
 using Allvis.Kaylee.Analyzer.Extensions;
+using Allvis.Kaylee.Analyzer.Utils;
 using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 
 namespace Allvis.Kaylee.Analyzer.Models
 {
@@ -30,6 +29,7 @@ namespace Allvis.Kaylee.Analyzer.Models
 
             if (parent != null)
             {
+                CircularDependencyUtils.Check(parent, this);
                 parent.Children.Add(this);
             }
             else
@@ -80,14 +80,26 @@ namespace Allvis.Kaylee.Analyzer.Models
 
         public void ResolveReferences()
         {
-            foreach (var reference in PrimaryKey)
+            foreach (var fieldReference in PrimaryKey)
             {
-                reference.Resolve(Schema.Ast);
+                fieldReference.Resolve(Schema.Ast);
 
-                if (reference.ResolvedField.Entity != this)
+                if (fieldReference.ResolvedField.Entity != this)
                 {
-                    throw new SemanticException($"The primary key field \"{reference.FieldName}\" referenced the entity \"{reference.ResolvedField.Entity.DisplayName}\" instead of the current entity \"{DisplayName}\".");
+                    throw new SemanticException($"The primary key field \"{fieldReference.FieldName}\" referenced the entity \"{fieldReference.ResolvedField.Entity.DisplayName}\" instead of the current entity \"{DisplayName}\".");
                 }
+            }
+            foreach (var reference in References)
+            {
+                reference.ResolveReferences(Schema.Ast);
+            }
+            foreach (var mutation in Mutations)
+            {
+                mutation.ResolveReferences();
+            }
+            foreach (var child in Children)
+            {
+                child.ResolveReferences();
             }
         }
     }

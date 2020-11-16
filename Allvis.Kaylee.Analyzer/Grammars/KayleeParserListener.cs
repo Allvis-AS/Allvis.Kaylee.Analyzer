@@ -151,45 +151,45 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitFieldParameterDefaultValue([NotNull] KayleeParser.FieldParameterDefaultValueContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keys"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeys"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKeys([NotNull] KayleeParser.KeysContext context);
+	void EnterEntityKeys([NotNull] KayleeParser.EntityKeysContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keys"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeys"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKeys([NotNull] KayleeParser.KeysContext context);
+	void ExitEntityKeys([NotNull] KayleeParser.EntityKeysContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keysBody"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeysBody"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKeysBody([NotNull] KayleeParser.KeysBodyContext context);
+	void EnterEntityKeysBody([NotNull] KayleeParser.EntityKeysBodyContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keysBody"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeysBody"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKeysBody([NotNull] KayleeParser.KeysBodyContext context);
+	void ExitEntityKeysBody([NotNull] KayleeParser.EntityKeysBodyContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keyPrimary"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyPrimary"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKeyPrimary([NotNull] KayleeParser.KeyPrimaryContext context);
+	void EnterEntityKeyPrimary([NotNull] KayleeParser.EntityKeyPrimaryContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keyPrimary"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeyPrimary"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKeyPrimary([NotNull] KayleeParser.KeyPrimaryContext context);
+	void ExitEntityKeyPrimary([NotNull] KayleeParser.EntityKeyPrimaryContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="KayleeParser.keyReference"/>.
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyReference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterKeyReference([NotNull] KayleeParser.KeyReferenceContext context);
+	void EnterEntityKeyReference([NotNull] KayleeParser.EntityKeyReferenceContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="KayleeParser.keyReference"/>.
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeyReference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitKeyReference([NotNull] KayleeParser.KeyReferenceContext context);
+	void ExitEntityKeyReference([NotNull] KayleeParser.EntityKeyReferenceContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.mutations"/>.
 	/// </summary>
@@ -240,4 +240,34 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitIdentifierList([NotNull] KayleeParser.IdentifierListContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtype"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtype([NotNull] KayleeParser.DtypeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtype"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtype([NotNull] KayleeParser.DtypeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeIntAutoIncrement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeIntAutoIncrement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context);
 }

@@ -1,7 +1,6 @@
 using Allvis.Kaylee.Analyzer.Exceptions;
 using Allvis.Kaylee.Analyzer.Models;
 using Allvis.Kaylee.Analyzer.Tests.Fixtures;
-using System;
 using System.Linq;
 using Xunit;
 using Xunit.Categories;

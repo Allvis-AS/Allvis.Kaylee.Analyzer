@@ -6,21 +6,21 @@ using Xunit.Categories;
 namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
 {
     [UnitTest]
-    public class FieldTest
+    public class MutationTest
     {
         [Fact]
-        public void TestThatFieldAddsItselfToEntity()
+        public void TestThatMutationAddsItselfToEntity()
         {
             // Arrange
             var schema = CoreSchemaFixture.Create();
-            var role = schema.Locate(new[] { "Role" });
+            var user = schema.Locate(new[] { "User" });
             // Act
-            var roleId = new Field(role)
+            var contactInformation = new Mutation(user)
             {
-                Name = "RoleId"
+                Name = "ContactInformation"
             };
             // Assert
-            Assert.Equal(new[] { roleId }, role.Fields);
+            Assert.Equal(new[] { contactInformation }, user.Mutations);
         }
     }
 }
