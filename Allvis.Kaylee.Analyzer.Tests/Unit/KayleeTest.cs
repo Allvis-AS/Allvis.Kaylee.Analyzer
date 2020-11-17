@@ -15,7 +15,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
             // Arrange
             var tModel = ModelFixture.Create();
             // Act
-            var ast = Kaylee.Parse(tModel);
+            var ast = KayleeHelper.Parse(tModel);
             // Assert
             Assert.Collection(ast.Schemata,
                 s =>

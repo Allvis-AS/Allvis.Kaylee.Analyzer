@@ -4,7 +4,7 @@ using Antlr4.Runtime;
 
 namespace Allvis.Kaylee.Analyzer
 {
-    public static class Kaylee
+    public static class KayleeHelper
     {
         public static Ast Parse(string model)
         {
