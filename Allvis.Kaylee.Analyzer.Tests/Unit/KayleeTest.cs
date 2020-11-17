@@ -29,45 +29,53 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("UserId", f.Name);
                             Assert.Equal(FieldType.GUID, f.Type);
                             Assert.Equal("NEWID()", f.DefaultExpression);
+                            Assert.False(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("CreatedAt", f.Name);
                             Assert.Equal(FieldType.DATE, f.Type);
                             Assert.Equal("SYSDATETIMEOFFSET()", f.DefaultExpression);
+                            Assert.False(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("FirstName", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(100, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("LastName", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(100, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("ContactEmail", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(254, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("ContactPhone", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(50, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("Verified", f.Name);
                             Assert.Equal(FieldType.BIT, f.Type);
                             Assert.Equal("0", f.DefaultExpression);
+                            Assert.False(f.Nullable);
                         }, f =>
                         {
                             Assert.Equal("SuperUser", f.Name);
                             Assert.Equal(FieldType.BIT, f.Type);
                             Assert.Equal("0", f.DefaultExpression);
+                            Assert.False(f.Nullable);
                         });
                         Assert.Collection(e.PrimaryKey, fr =>
                         {

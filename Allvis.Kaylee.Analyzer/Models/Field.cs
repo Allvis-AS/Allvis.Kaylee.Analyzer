@@ -10,7 +10,7 @@ namespace Allvis.Kaylee.Analyzer.Models
         public FieldSize Size { get; set; } = FieldSize.Identity();
         public bool Nullable { get; set; }
         public bool AutoIncrement { get; set; }
-        public string DefaultExpression { get; set; } = string.Empty;
+        public string DefaultExpression { get; set; }
 
         public string DisplayName => $"{Entity.DisplayName}.{Name}";
 
