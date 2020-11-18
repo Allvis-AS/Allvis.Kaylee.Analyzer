@@ -80,6 +80,9 @@ MUTATIONS
 	: 'mutations'
 	;
 
+COMPUTED
+	: 'computed'
+	;
 DEFAULT
 	: 'default'
 	;

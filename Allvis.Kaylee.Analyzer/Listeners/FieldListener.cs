@@ -23,6 +23,7 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             var fieldBody = context.fieldBody();
             if (fieldBody != null)
             {
+                ParseComputed(fieldBody);
                 ParseDefaultExpression(fieldBody);
             }
         }
@@ -70,6 +71,16 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             else if (dtype.DTYPE_ROWVERSION() != null)
             {
                 Field.Type = FieldType.ROWVERSION;
+            }
+        }
+
+        private void ParseComputed(KayleeParser.FieldBodyContext body)
+        {
+            var parameter = body.fieldParameterComputed().FirstOrDefault();
+            if (parameter != null)
+            {
+                var value = parameter.fieldParameterComputedValue();
+                Field.Computed = bool.Parse(value.BOOLEAN().GetText());
             }
         }
 

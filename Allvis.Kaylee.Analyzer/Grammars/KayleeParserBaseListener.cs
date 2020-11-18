@@ -155,6 +155,30 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitFieldBody([NotNull] KayleeParser.FieldBodyContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.fieldParameterComputed"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFieldParameterComputed([NotNull] KayleeParser.FieldParameterComputedContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.fieldParameterComputed"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFieldParameterComputed([NotNull] KayleeParser.FieldParameterComputedContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.fieldParameterComputedValue"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFieldParameterComputedValue([NotNull] KayleeParser.FieldParameterComputedValueContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.fieldParameterComputedValue"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFieldParameterComputedValue([NotNull] KayleeParser.FieldParameterComputedValueContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.fieldParameterDefault"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

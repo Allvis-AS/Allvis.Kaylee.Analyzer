@@ -23,6 +23,9 @@ schema auth {
             SuperUser BIT {
                 default = 0;
             }
+            NormalizedContactEmail TEXT(254) {
+                computed = true;
+            }
         }
 
         keys {

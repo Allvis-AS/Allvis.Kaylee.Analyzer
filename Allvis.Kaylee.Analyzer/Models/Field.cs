@@ -11,6 +11,7 @@ namespace Allvis.Kaylee.Analyzer.Models
         public bool Nullable { get; set; }
         public bool AutoIncrement { get; set; }
         public string DefaultExpression { get; set; }
+        public bool Computed { get; set; }
 
         public string DisplayName => $"{Entity.DisplayName}.{Name}";
 

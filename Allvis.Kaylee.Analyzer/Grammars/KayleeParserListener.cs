@@ -131,6 +131,26 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitFieldBody([NotNull] KayleeParser.FieldBodyContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.fieldParameterComputed"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFieldParameterComputed([NotNull] KayleeParser.FieldParameterComputedContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.fieldParameterComputed"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFieldParameterComputed([NotNull] KayleeParser.FieldParameterComputedContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.fieldParameterComputedValue"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFieldParameterComputedValue([NotNull] KayleeParser.FieldParameterComputedValueContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.fieldParameterComputedValue"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFieldParameterComputedValue([NotNull] KayleeParser.FieldParameterComputedValueContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.fieldParameterDefault"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

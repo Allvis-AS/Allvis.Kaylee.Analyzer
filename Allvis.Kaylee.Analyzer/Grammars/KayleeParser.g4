@@ -39,8 +39,16 @@ field
 	: IDENTIFIER QUESTION_MARK? dtype (OPEN_BLOCK fieldBody CLOSE_BLOCK | SCOL)
 	;
 fieldBody
-	: (fieldParameterDefault)*
+	: (fieldParameterComputed|fieldParameterDefault)*
 	;
+// computed = <true|false>;
+fieldParameterComputed
+	: COMPUTED ASSIGN fieldParameterComputedValue SCOL
+	;
+fieldParameterComputedValue
+	: BOOLEAN
+	;
+// default = <numeric|string|function>;
 fieldParameterDefault
 	: DEFAULT ASSIGN fieldParameterDefaultValue SCOL
 	;

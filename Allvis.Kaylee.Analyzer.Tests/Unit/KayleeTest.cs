@@ -30,12 +30,14 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal(FieldType.GUID, f.Type);
                             Assert.Equal("NEWID()", f.DefaultExpression);
                             Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("CreatedAt", f.Name);
                             Assert.Equal(FieldType.DATE, f.Type);
                             Assert.Equal("SYSDATETIMEOFFSET()", f.DefaultExpression);
                             Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("FirstName", f.Name);
@@ -43,6 +45,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal(100, f.Size.Size);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("LastName", f.Name);
@@ -50,6 +53,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal(100, f.Size.Size);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("ContactEmail", f.Name);
@@ -57,6 +61,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal(254, f.Size.Size);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("ContactPhone", f.Name);
@@ -64,18 +69,29 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal(50, f.Size.Size);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("Verified", f.Name);
                             Assert.Equal(FieldType.BIT, f.Type);
                             Assert.Equal("0", f.DefaultExpression);
                             Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
                         }, f =>
                         {
                             Assert.Equal("SuperUser", f.Name);
                             Assert.Equal(FieldType.BIT, f.Type);
                             Assert.Equal("0", f.DefaultExpression);
                             Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
+                        }, f =>
+                        {
+                            Assert.Equal("NormalizedContactEmail", f.Name);
+                            Assert.Equal(FieldType.TEXT, f.Type);
+                            Assert.Equal(254, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
+                            Assert.False(f.Nullable);
+                            Assert.True(f.Computed);
                         });
                         Assert.Collection(e.PrimaryKey, fr =>
                         {
