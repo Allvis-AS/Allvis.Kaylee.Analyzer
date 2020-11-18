@@ -201,6 +201,16 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitEntityKeyPrimary([NotNull] KayleeParser.EntityKeyPrimaryContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyUnique"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterEntityKeyUnique([NotNull] KayleeParser.EntityKeyUniqueContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeyUnique"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitEntityKeyUnique([NotNull] KayleeParser.EntityKeyUniqueContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyReference"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

@@ -136,6 +136,7 @@ schema tenant {
                                 primary = UserId;
 
                                 reference(UserId) => auth::User(UserId);
+                                unique(CommentId, Emoji);
                             }
                         }
                     }

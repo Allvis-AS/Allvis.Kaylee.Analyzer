@@ -239,6 +239,18 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitEntityKeyPrimary([NotNull] KayleeParser.EntityKeyPrimaryContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyUnique"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterEntityKeyUnique([NotNull] KayleeParser.EntityKeyUniqueContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.entityKeyUnique"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitEntityKeyUnique([NotNull] KayleeParser.EntityKeyUniqueContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.entityKeyReference"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

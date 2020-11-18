@@ -1,5 +1,6 @@
 ﻿using Allvis.Kaylee.Analyzer.Enums;
 using Allvis.Kaylee.Analyzer.Tests.Fixtures;
+using NuGet.Frameworks;
 using System.Linq;
 using Xunit;
 using Xunit.Categories;
@@ -206,6 +207,20 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                                                     Assert.Equal("UserId", fr.FieldName);
                                                     Assert.True(fr.IsResolved);
                                                     Assert.Equal(s.Ast.Locate("auth", new[] { "User" }).Fields.Single(f => f.Name == "UserId"), fr.ResolvedField);
+                                                });
+                                            });
+                                            Assert.Collection(e.UniqueKeys, k =>
+                                            {
+                                                Assert.Collection(k.FieldReferences, fr =>
+                                                {
+                                                    Assert.Equal("CommentId", fr.FieldName);
+                                                    Assert.True(fr.IsResolved);
+                                                    Assert.Equal(e.Parent.Fields.Single(f => f.Name == "CommentId"), fr.ResolvedField);
+                                                }, fr =>
+                                                {
+                                                    Assert.Equal("Emoji", fr.FieldName);
+                                                    Assert.True(fr.IsResolved);
+                                                    Assert.Equal(e.Fields.Single(f => f.Name == "Emoji"), fr.ResolvedField);
                                                 });
                                             });
                                         });

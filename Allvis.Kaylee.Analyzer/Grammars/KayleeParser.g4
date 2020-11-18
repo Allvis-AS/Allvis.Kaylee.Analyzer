@@ -39,7 +39,7 @@ field
 	: IDENTIFIER QUESTION_MARK? dtype (OPEN_BLOCK fieldBody CLOSE_BLOCK | SCOL)
 	;
 fieldBody
-	: (fieldParameterComputed|fieldParameterDefault)*
+	: (fieldParameterComputed | fieldParameterDefault)*
 	;
 // computed = <true|false>;
 fieldParameterComputed
@@ -63,10 +63,13 @@ entityKeys
 	: KEYS OPEN_BLOCK entityKeysBody CLOSE_BLOCK
 	;
 entityKeysBody
-	: (entityKeyPrimary | entityKeyReference)*
+	: (entityKeyPrimary | entityKeyUnique | entityKeyReference)*
 	;
 entityKeyPrimary
 	: PRIMARY ASSIGN identifierList SCOL
+	;
+entityKeyUnique
+	: UNIQUE OPEN_PAR identifierList CLOSE_PAR SCOL
 	;
 entityKeyReference
 	: REFERENCE OPEN_PAR identifierList CLOSE_PAR ARROW qualified OPEN_PAR identifierList CLOSE_PAR SCOL

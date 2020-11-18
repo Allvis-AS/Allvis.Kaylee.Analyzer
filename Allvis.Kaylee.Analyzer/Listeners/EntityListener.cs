@@ -60,6 +60,12 @@ namespace Allvis.Kaylee.Analyzer.Listeners
                     var keyListener = new PrimaryKeyListener(Entity);
                     key.EnterRule(keyListener);
                 }
+                var uniqueKeys = body.entityKeyUnique();
+                foreach (var key in uniqueKeys)
+                {
+                    var keyListener = new UniqueKeyListener(Entity);
+                    key.EnterRule(keyListener);
+                }
                 var referenceKeys = body.entityKeyReference();
                 foreach (var key in referenceKeys)
                 {

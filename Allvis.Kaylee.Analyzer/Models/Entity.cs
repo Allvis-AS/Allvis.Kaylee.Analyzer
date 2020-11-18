@@ -3,6 +3,7 @@ using Allvis.Kaylee.Analyzer.Extensions;
 using Allvis.Kaylee.Analyzer.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Allvis.Kaylee.Analyzer.Models
 {
@@ -14,6 +15,7 @@ namespace Allvis.Kaylee.Analyzer.Models
         public IEnumerable<string> Path { get; }
         public List<Field> Fields { get; } = new List<Field>();
         public List<FieldReference> PrimaryKey { get; } = new List<FieldReference>();
+        public List<UniqueKey> UniqueKeys { get; } = new List<UniqueKey>();
         public List<Reference> References { get; } = new List<Reference>();
         public List<Mutation> Mutations { get; } = new List<Mutation>();
         public List<Entity> Children { get; } = new List<Entity>();
@@ -70,7 +72,12 @@ namespace Allvis.Kaylee.Analyzer.Models
         {
             try
             {
-                return Fields.Locate(fieldName);
+                return this.GetFullPrimaryKey()
+                    .Where(fr => fr.IsResolved)
+                    .Select(fr => fr.ResolvedField)
+                    .Concat(Fields)
+                    .Distinct()
+                    .Locate(fieldName);
             }
             catch (InvalidOperationException)
             {
@@ -88,6 +95,10 @@ namespace Allvis.Kaylee.Analyzer.Models
                 {
                     throw new SemanticException($"The primary key field \"{fieldReference.FieldName}\" referenced the entity \"{fieldReference.ResolvedField.Entity.DisplayName}\" instead of the current entity \"{DisplayName}\".");
                 }
+            }
+            foreach (var uniqueKey in UniqueKeys)
+            {
+                uniqueKey.ResolveReferences();
             }
             foreach (var reference in References)
             {

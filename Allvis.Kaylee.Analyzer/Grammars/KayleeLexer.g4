@@ -89,6 +89,9 @@ DEFAULT
 PRIMARY
 	: 'primary'
 	;
+UNIQUE
+	: 'unique'
+	;
 REFERENCE
 	: 'reference'
 	;

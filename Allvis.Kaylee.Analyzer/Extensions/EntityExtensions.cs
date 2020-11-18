@@ -48,5 +48,14 @@ namespace Allvis.Kaylee.Analyzer.Extensions
             }
             return false;
         }
+
+        public static IEnumerable<FieldReference> GetFullPrimaryKey(this Entity entity)
+        {
+            if (entity.Parent != null)
+            {
+                return GetFullPrimaryKey(entity.Parent).Concat(entity.PrimaryKey);
+            }
+            return entity.PrimaryKey;
+        }
     }
 }

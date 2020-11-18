@@ -79,11 +79,42 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
         }
 
         [Fact]
-        public void TestLocate_ThrowsForNonExistentFields()
+        public void TestLocate_Field()
         {
             // Arrange
-            var schema = CoreSchemaFixture.Create();
-            var user = schema.Locate(new[] { "User" });
+            var tModel = ModelFixture.Create();
+            var ast = KayleeHelper.Parse(tModel);
+            var user = ast.Locate("auth", new[] { "User" });
+            var fieldName = "UserId";
+            var userId = user.Fields.Single(f => f.Name == fieldName);
+            // Act
+            var field = user.Locate(fieldName);
+            // Assert
+            Assert.Equal(userId, field);
+        }
+
+        [Fact]
+        public void TestLocate_Field_PartOfParentKey()
+        {
+            // Arrange
+            var tModel = ModelFixture.Create();
+            var ast = KayleeHelper.Parse(tModel);
+            var tenantProcedure = ast.Locate("tenant", new[] { "Tenant", "Procedure" });
+            var fieldName = "TenantId";
+            var tenantId = tenantProcedure.Parent.Fields.Single(f => f.Name == fieldName);
+            // Act
+            var field = tenantProcedure.Locate(fieldName);
+            // Assert
+            Assert.Equal(tenantId, field);
+        }
+
+        [Fact]
+        public void TestLocate_Field_ThrowsForNonExistentFields()
+        {
+            // Arrange
+            var tModel = ModelFixture.Create();
+            var ast = KayleeHelper.Parse(tModel);
+            var user = ast.Locate("auth", new[] { "User" });
             // Act & Assert
             Assert.Throws<FieldNotFoundException>(() => user.Locate("VoidField"));
         }
