@@ -358,6 +358,30 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeVarbinarySize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtypeVarbinarySize([NotNull] KayleeParser.DtypeVarbinarySizeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeVarbinarySize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtypeVarbinarySize([NotNull] KayleeParser.DtypeVarbinarySizeContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeBinarySize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtypeBinarySize([NotNull] KayleeParser.DtypeBinarySizeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeBinarySize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtypeBinarySize([NotNull] KayleeParser.DtypeBinarySizeContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

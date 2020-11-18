@@ -8,6 +8,8 @@ namespace Allvis.Kaylee.Analyzer.Enums
         TEXT,
         GUID,
         DATE,
+        VARBINARY,
+        BINARY,
         ROWVERSION
     }
 }

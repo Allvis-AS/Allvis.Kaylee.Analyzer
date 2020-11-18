@@ -101,14 +101,21 @@ dtype
 	| DTYPE_TEXT OPEN_PAR dtypeTextSize CLOSE_PAR
 	| DTYPE_GUID
 	| DTYPE_DATE
+	| DTYPE_VARBINARY OPEN_PAR dtypeVarbinarySize CLOSE_PAR
+	| DTYPE_BINARY OPEN_PAR dtypeBinarySize CLOSE_PAR
 	| DTYPE_ROWVERSION
 	;
-
 dtypeIntAutoIncrement
 	: AUTO INCREMENT
 	;
-
 dtypeTextSize
 	: UNSIGNED_INTEGER
 	| MAX
+	;
+dtypeVarbinarySize
+	: UNSIGNED_INTEGER
+	| MAX
+	;
+dtypeBinarySize
+	: UNSIGNED_INTEGER
 	;

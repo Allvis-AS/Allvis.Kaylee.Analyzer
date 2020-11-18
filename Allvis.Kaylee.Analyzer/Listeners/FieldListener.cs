@@ -68,6 +68,25 @@ namespace Allvis.Kaylee.Analyzer.Listeners
             {
                 Field.Type = FieldType.DATE;
             }
+            else if (dtype.DTYPE_VARBINARY() != null)
+            {
+                Field.Type = FieldType.VARBINARY;
+                var size = dtype.dtypeVarbinarySize().GetText();
+                if (size == "MAX")
+                {
+                    Field.Size = FieldSize.ForMax();
+                }
+                else
+                {
+                    Field.Size = FieldSize.ForSize(long.Parse(size));
+                }
+            }
+            else if (dtype.DTYPE_BINARY() != null)
+            {
+                Field.Type = FieldType.BINARY;
+                var size = dtype.dtypeBinarySize().GetText();
+                Field.Size = FieldSize.ForSize(long.Parse(size));
+            }
             else if (dtype.DTYPE_ROWVERSION() != null)
             {
                 Field.Type = FieldType.ROWVERSION;

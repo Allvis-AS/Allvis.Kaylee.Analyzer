@@ -26,6 +26,9 @@ schema auth {
             NormalizedContactEmail TEXT(254) {
                 computed = true;
             }
+            Hash BINARY(128);
+            Picture VARBINARY(8192);
+            CV VARBINARY(MAX);
         }
 
         keys {

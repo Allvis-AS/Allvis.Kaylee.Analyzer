@@ -300,4 +300,24 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDtypeTextSize([NotNull] KayleeParser.DtypeTextSizeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeVarbinarySize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeVarbinarySize([NotNull] KayleeParser.DtypeVarbinarySizeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeVarbinarySize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeVarbinarySize([NotNull] KayleeParser.DtypeVarbinarySizeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeBinarySize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeBinarySize([NotNull] KayleeParser.DtypeBinarySizeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeBinarySize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeBinarySize([NotNull] KayleeParser.DtypeBinarySizeContext context);
 }

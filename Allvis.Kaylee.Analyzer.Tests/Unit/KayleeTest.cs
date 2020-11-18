@@ -93,6 +93,30 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Null(f.DefaultExpression);
                             Assert.False(f.Nullable);
                             Assert.True(f.Computed);
+                        }, f =>
+                        {
+                            Assert.Equal("Hash", f.Name);
+                            Assert.Equal(FieldType.BINARY, f.Type);
+                            Assert.Equal(128, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
+                            Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
+                        }, f =>
+                        {
+                            Assert.Equal("Picture", f.Name);
+                            Assert.Equal(FieldType.VARBINARY, f.Type);
+                            Assert.Equal(8192, f.Size.Size);
+                            Assert.Null(f.DefaultExpression);
+                            Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
+                        }, f =>
+                        {
+                            Assert.Equal("CV", f.Name);
+                            Assert.Equal(FieldType.VARBINARY, f.Type);
+                            Assert.True(f.Size.IsMax);
+                            Assert.Null(f.DefaultExpression);
+                            Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
                         });
                         Assert.Collection(e.PrimaryKey, fr =>
                         {
