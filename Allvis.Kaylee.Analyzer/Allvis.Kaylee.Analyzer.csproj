@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Allvis.Kaylee.Analyzer</PackageId>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <Authors>Sindre van der Linden</Authors>
     <Company>Allvis AS</Company>
     <Description>Parses the Kaylee model files and generates the corresponding AST. Usually acts as the baseline for other tools like code generators.</Description>
