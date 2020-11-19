@@ -1,12 +1,6 @@
 lexer grammar KayleeLexer
 	;
 
-NUMERIC_LITERAL
-	: INTEGER
-	| FLOAT
-	| HEX_NUMBER
-	;
-
 STRING_LITERAL
 	: '\'' (~'\'' | '\'\'')* '\''
 	;
@@ -16,16 +10,10 @@ BOOLEAN
 	| FALSE
 	;
 
-INTEGER
-	: MINUS? UNSIGNED_INTEGER
-	;
 UNSIGNED_INTEGER
 	: DIGIT+
 	;
 
-FLOAT
-	: MINUS? UNSIGNED_FLOAT
-	;
 UNSIGNED_FLOAT
 	: DIGIT+ (DOT DIGIT+)
 	;

@@ -382,6 +382,18 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDtypeBinarySize([NotNull] KayleeParser.DtypeBinarySizeContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.numericLiteral"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterNumericLiteral([NotNull] KayleeParser.NumericLiteralContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.numericLiteral"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitNumericLiteral([NotNull] KayleeParser.NumericLiteralContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

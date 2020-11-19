@@ -320,4 +320,14 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitDtypeBinarySize([NotNull] KayleeParser.DtypeBinarySizeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.numericLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterNumericLiteral([NotNull] KayleeParser.NumericLiteralContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.numericLiteral"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitNumericLiteral([NotNull] KayleeParser.NumericLiteralContext context);
 }

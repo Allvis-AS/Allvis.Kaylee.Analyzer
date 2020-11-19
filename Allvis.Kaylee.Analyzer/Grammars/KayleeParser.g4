@@ -53,7 +53,7 @@ fieldParameterDefault
 	: DEFAULT ASSIGN fieldParameterDefaultValue SCOL
 	;
 fieldParameterDefaultValue
-	: NUMERIC_LITERAL
+	: numericLiteral
 	| STRING_LITERAL
 	| FIELD_PARAMETER_DEFAULT_FUNCTION OPEN_PAR CLOSE_PAR
 	;
@@ -118,4 +118,10 @@ dtypeVarbinarySize
 	;
 dtypeBinarySize
 	: UNSIGNED_INTEGER
+	;
+
+numericLiteral
+	: MINUS? UNSIGNED_INTEGER
+	| MINUS? UNSIGNED_FLOAT
+	| HEX_NUMBER
 	;
