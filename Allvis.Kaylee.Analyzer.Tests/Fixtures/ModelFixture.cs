@@ -29,6 +29,8 @@ schema auth {
             Hash BINARY(128);
             Picture VARBINARY(8192);
             CV VARBINARY(MAX);
+            RAM4 BIGINT;
+            Price DECIMAL (19, 4); 
         }
 
         keys {

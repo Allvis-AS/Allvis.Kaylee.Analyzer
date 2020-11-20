@@ -44,6 +44,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("FirstName", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(100, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                             Assert.False(f.Computed);
@@ -52,6 +53,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("LastName", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(100, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                             Assert.False(f.Computed);
@@ -60,6 +62,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("ContactEmail", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(254, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                             Assert.False(f.Computed);
@@ -68,6 +71,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("ContactPhone", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(50, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.True(f.Nullable);
                             Assert.False(f.Computed);
@@ -90,6 +94,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("NormalizedContactEmail", f.Name);
                             Assert.Equal(FieldType.TEXT, f.Type);
                             Assert.Equal(254, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.False(f.Nullable);
                             Assert.True(f.Computed);
@@ -98,6 +103,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("Hash", f.Name);
                             Assert.Equal(FieldType.BINARY, f.Type);
                             Assert.Equal(128, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.False(f.Nullable);
                             Assert.False(f.Computed);
@@ -106,6 +112,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("Picture", f.Name);
                             Assert.Equal(FieldType.VARBINARY, f.Type);
                             Assert.Equal(8192, f.Size.Size);
+                            Assert.Equal(0, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.False(f.Nullable);
                             Assert.False(f.Computed);
@@ -114,6 +121,22 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                             Assert.Equal("CV", f.Name);
                             Assert.Equal(FieldType.VARBINARY, f.Type);
                             Assert.True(f.Size.IsMax);
+                            Assert.Null(f.DefaultExpression);
+                            Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
+                        }, f =>
+                        {
+                            Assert.Equal("RAM4", f.Name);
+                            Assert.Equal(FieldType.BIGINT, f.Type);
+                            Assert.Null(f.DefaultExpression);
+                            Assert.False(f.Nullable);
+                            Assert.False(f.Computed);
+                        }, f =>
+                        {
+                            Assert.Equal("Price", f.Name);
+                            Assert.Equal(FieldType.DECIMAL, f.Type);
+                            Assert.Equal(19, f.Size.Size);
+                            Assert.Equal(4, f.Size.Precision);
                             Assert.Null(f.DefaultExpression);
                             Assert.False(f.Nullable);
                             Assert.False(f.Computed);

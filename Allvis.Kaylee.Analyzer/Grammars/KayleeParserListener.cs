@@ -291,6 +291,36 @@ public interface IKayleeParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeBigintAutoIncrement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeBigintAutoIncrement([NotNull] KayleeParser.DtypeBigintAutoIncrementContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeBigintAutoIncrement"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeBigintAutoIncrement([NotNull] KayleeParser.DtypeBigintAutoIncrementContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dTypeDecimalSize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDTypeDecimalSize([NotNull] KayleeParser.DTypeDecimalSizeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dTypeDecimalSize"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDTypeDecimalSize([NotNull] KayleeParser.DTypeDecimalSizeContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeDecimalPrecision"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterDtypeDecimalPrecision([NotNull] KayleeParser.DtypeDecimalPrecisionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeDecimalPrecision"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitDtypeDecimalPrecision([NotNull] KayleeParser.DtypeDecimalPrecisionContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

@@ -43,6 +43,18 @@ namespace Allvis.Kaylee.Analyzer.Listeners
                 Field.Type = FieldType.INT;
                 Field.AutoIncrement = dtype.dtypeIntAutoIncrement() != null;
             }
+            else if (dtype.DTYPE_BIGINT() != null)
+            {
+                Field.Type = FieldType.BIGINT;
+                Field.AutoIncrement = dtype.dtypeBigintAutoIncrement() != null;
+            }
+            else if (dtype.DTYPE_DECIMAL() != null)
+            {
+                Field.Type = FieldType.DECIMAL;
+                var size = dtype.dTypeDecimalSize().GetText();
+                var precision = dtype.dtypeDecimalPrecision().GetText();
+                Field.Size = FieldSize.ForSize(long.Parse(size), long.Parse(precision));
+            }
             else if (dtype.DTYPE_CHAR() != null)
             {
                 Field.Type = FieldType.CHAR;

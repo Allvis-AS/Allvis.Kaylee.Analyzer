@@ -347,6 +347,42 @@ public partial class KayleeParserBaseListener : IKayleeParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitDtypeIntAutoIncrement([NotNull] KayleeParser.DtypeIntAutoIncrementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeBigintAutoIncrement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtypeBigintAutoIncrement([NotNull] KayleeParser.DtypeBigintAutoIncrementContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeBigintAutoIncrement"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtypeBigintAutoIncrement([NotNull] KayleeParser.DtypeBigintAutoIncrementContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dTypeDecimalSize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDTypeDecimalSize([NotNull] KayleeParser.DTypeDecimalSizeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dTypeDecimalSize"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDTypeDecimalSize([NotNull] KayleeParser.DTypeDecimalSizeContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeDecimalPrecision"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDtypeDecimalPrecision([NotNull] KayleeParser.DtypeDecimalPrecisionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="KayleeParser.dtypeDecimalPrecision"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDtypeDecimalPrecision([NotNull] KayleeParser.DtypeDecimalPrecisionContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="KayleeParser.dtypeTextSize"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
