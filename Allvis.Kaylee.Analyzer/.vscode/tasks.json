@@ -2,11 +2,11 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "generate parser",
-            "type": "shell",
-            "command": "java",
+    "tasks": [{
+        "label": "generate parser",
+        "type": "shell",
+        "command": "java",
+        "windows": {
             "args": [
                 "-jar",
                 "C:/antlr/antlr-4.8-complete.jar",
@@ -14,10 +14,19 @@
                 "KayleeLexer.g4",
                 "KayleeParser.g4"
             ],
-            "options": {
-                "cwd": "${workspaceFolder}/Grammars"
-            },
-            "problemMatcher": []
-        }
-    ]
+        },
+        "osx": {
+            "args": [
+                "-jar",
+                "~/tools/antlr-4.8-complete.jar",
+                "-Dlanguage=CSharp",
+                "KayleeLexer.g4",
+                "KayleeParser.g4"
+            ]
+        },
+        "options": {
+            "cwd": "${workspaceFolder}/Grammars"
+        },
+        "problemMatcher": []
+    }]
 }
