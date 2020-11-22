@@ -20,11 +20,15 @@ namespace Allvis.Kaylee.Analyzer.Listeners
 
         private void ResolveFieldReferences()
         {
-            foreach (var schema in Ast.Schemata)
+            const int MAX_PASSES = 2;
+            for (var pass = 0; pass < MAX_PASSES; pass++)
             {
-                foreach (var entity in schema.Entities)
+                foreach (var schema in Ast.Schemata)
                 {
-                    entity.ResolveReferences();
+                    foreach (var entity in schema.Entities)
+                    {
+                        entity.ResolveReferences(pass);
+                    }
                 }
             }
         }

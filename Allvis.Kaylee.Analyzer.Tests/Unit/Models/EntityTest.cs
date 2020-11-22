@@ -147,7 +147,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
             scopeRef.EntityPath.AddRange(new[] { "User", "Role", "Info" });
             userRoleInfo.PrimaryKey.AddRange(new[] { infoIdRef, scopeRef });
             // Act
-            userRoleInfo.ResolveReferences();
+            userRoleInfo.ResolveReferences(pass: 0);
             // Assert
             var resolvedFields = userRoleInfo.PrimaryKey.Select(k => k.ResolvedField);
             Assert.Equal(new[] { infoId, scope }, resolvedFields);
@@ -172,7 +172,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
             roleIdRef.EntityPath.Add("Role");
             user.PrimaryKey.Add(roleIdRef);
             // Act & Assert
-            Assert.Throws<SemanticException>(() => user.ResolveReferences());
+            Assert.Throws<SemanticException>(() => user.ResolveReferences(pass: 0));
         }
     }
 }

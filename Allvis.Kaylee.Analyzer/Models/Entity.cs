@@ -87,32 +87,38 @@ namespace Allvis.Kaylee.Analyzer.Models
             }
         }
 
-        public void ResolveReferences()
+        public void ResolveReferences(int pass)
         {
-            foreach (var fieldReference in PrimaryKey)
+            if (pass == 0)
             {
-                fieldReference.Resolve(Schema.Ast);
-
-                if (fieldReference.ResolvedField.Entity != this)
+                foreach (var fieldReference in PrimaryKey)
                 {
-                    throw new SemanticException($"The primary key field \"{fieldReference.FieldName}\" referenced the entity \"{fieldReference.ResolvedField.Entity.DisplayName}\" instead of the current entity \"{DisplayName}\".");
+                    fieldReference.Resolve(Schema.Ast);
+
+                    if (fieldReference.ResolvedField.Entity != this)
+                    {
+                        throw new SemanticException($"The primary key field \"{fieldReference.FieldName}\" referenced the entity \"{fieldReference.ResolvedField.Entity.DisplayName}\" instead of the current entity \"{DisplayName}\".");
+                    }
                 }
             }
-            foreach (var uniqueKey in UniqueKeys)
+            else if (pass == 1)
             {
-                uniqueKey.ResolveReferences();
-            }
-            foreach (var reference in References)
-            {
-                reference.ResolveReferences(Schema.Ast);
-            }
-            foreach (var mutation in Mutations)
-            {
-                mutation.ResolveReferences();
+                foreach (var uniqueKey in UniqueKeys)
+                {
+                    uniqueKey.ResolveReferences();
+                }
+                foreach (var reference in References)
+                {
+                    reference.ResolveReferences(Schema.Ast);
+                }
+                foreach (var mutation in Mutations)
+                {
+                    mutation.ResolveReferences();
+                }
             }
             foreach (var child in Children)
             {
-                child.ResolveReferences();
+                child.ResolveReferences(pass);
             }
         }
     }
