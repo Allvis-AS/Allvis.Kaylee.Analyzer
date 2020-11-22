@@ -25,6 +25,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                     Assert.Collection(s.Entities, e =>
                     {
                         Assert.Equal("User", e.Name);
+                        Assert.False(e.IsQuery);
                         Assert.Collection(e.Fields, f =>
                         {
                             Assert.Equal("UserId", f.Name);
@@ -193,21 +194,36 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                     Assert.Collection(s.Entities, e =>
                     {
                         Assert.Equal("Tenant", e.Name);
+                        Assert.False(e.IsQuery);
                         Assert.Collection(e.Children, e =>
                         {
+                            Assert.Equal("Task", e.Name);
+                            Assert.True(e.IsQuery);
+                            Assert.Collection(e.PrimaryKey, fr =>
+                            {
+                                Assert.Equal("TaskId", fr.FieldName);
+                                Assert.Equal(e.Fields.Single(f => f.Name == "TaskId"), fr.ResolvedField);
+                            });
+                        }, e =>
+                        {
                             Assert.Equal("Procedure", e.Name);
+                            Assert.False(e.IsQuery);
                             Assert.Collection(e.Children, e =>
                             {
                                 Assert.Equal("Revision", e.Name);
+                                Assert.False(e.IsQuery);
                                 Assert.Collection(e.Children, e =>
                                 {
                                     Assert.Equal("Execution", e.Name);
+                                    Assert.False(e.IsQuery);
                                     Assert.Collection(e.Children, e =>
                                     {
                                         Assert.Equal("Comment", e.Name);
+                                        Assert.False(e.IsQuery);
                                         Assert.Collection(e.Children, e =>
                                         {
                                             Assert.Equal("Delivery", e.Name);
+                                            Assert.False(e.IsQuery);
                                             Assert.Collection(e.References, r =>
                                             {
                                                 Assert.Collection(r.Source, fr =>
@@ -241,6 +257,7 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit
                                         }, e =>
                                         {
                                             Assert.Equal("Reaction", e.Name);
+                                            Assert.False(e.IsQuery);
                                             Assert.Collection(e.References, r =>
                                             {
                                                 Assert.Collection(r.Source, fr =>

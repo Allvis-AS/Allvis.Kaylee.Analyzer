@@ -14,7 +14,7 @@ error:
 schema: SCHEMA IDENTIFIER OPEN_BLOCK schemaBody CLOSE_BLOCK;
 schemaBody: (entity)*;
 
-entity: ENTITY IDENTIFIER OPEN_BLOCK entityBody CLOSE_BLOCK;
+entity: (ENTITY | QUERY) IDENTIFIER OPEN_BLOCK entityBody CLOSE_BLOCK;
 entityBody: (fields | entityKeys | mutations | entity)*;
 
 fields: FIELDS OPEN_BLOCK fieldsBody CLOSE_BLOCK;

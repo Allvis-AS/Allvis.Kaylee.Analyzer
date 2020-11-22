@@ -11,11 +11,11 @@ namespace Allvis.Kaylee.Analyzer.Tests.Fixtures
             {
                 Name = "core"
             };
-            var user = new Entity(schema, null, "User");
-            var role = new Entity(schema, null, "Role");
-            _ = new Entity(schema, role, "Info");
-            var userRole = new Entity(schema, user, "Role");
-            _ = new Entity(schema, userRole, "Info");
+            var user = new Entity(schema, null, "User", false);
+            var role = new Entity(schema, null, "Role", false);
+            _ = new Entity(schema, role, "Info", false);
+            var userRole = new Entity(schema, user, "Role", false);
+            _ = new Entity(schema, userRole, "Info", false);
             return schema;
         }
     }

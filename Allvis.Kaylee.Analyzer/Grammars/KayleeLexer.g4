@@ -27,6 +27,7 @@ FIELD_PARAMETER_DEFAULT_FUNCTION: 'NEWID' | 'SYSDATETIMEOFFSET';
 
 SCHEMA: 'schema';
 ENTITY: 'entity';
+QUERY: 'query';
 FIELDS: 'fields';
 KEYS: 'keys';
 MUTATIONS: 'mutations';

@@ -20,7 +20,8 @@ namespace Allvis.Kaylee.Analyzer.Listeners
         public override void EnterEntity([NotNull] KayleeParser.EntityContext context)
         {
             var identifier = context.IDENTIFIER();
-            Entity = new Entity(schema, parent, identifier.GetText());
+            var isQuery = context.QUERY() != null;
+            Entity = new Entity(schema, parent, identifier.GetText(), isQuery);
 
             var body = context.entityBody();
             VisitFields(body);

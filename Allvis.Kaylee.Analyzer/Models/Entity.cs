@@ -12,6 +12,7 @@ namespace Allvis.Kaylee.Analyzer.Models
         public Schema Schema { get; }
         public Entity Parent { get; }
         public string Name { get; }
+        public bool IsQuery { get; }
         public IEnumerable<string> Path { get; }
         public List<Field> Fields { get; } = new List<Field>();
         public List<FieldReference> PrimaryKey { get; } = new List<FieldReference>();
@@ -22,11 +23,12 @@ namespace Allvis.Kaylee.Analyzer.Models
 
         public string DisplayName => $"{Schema.Name}::{string.Join(".", Path)}";
 
-        public Entity(Schema schema, Entity parent, string name)
+        public Entity(Schema schema, Entity parent, string name, bool isQuery)
         {
             Schema = schema;
             Parent = parent;
             Name = name;
+            IsQuery = isQuery;
             Path = ConstructPath();
 
             if (parent != null)

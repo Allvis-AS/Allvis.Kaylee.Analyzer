@@ -20,9 +20,9 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
                 Name = "core"
             };
             // Act
-            var user = new Entity(schema, null, "User");
-            var role = new Entity(schema, null, "Role");
-            _ = new Entity(schema, user, "Role");
+            var user = new Entity(schema, null, "User", false);
+            var role = new Entity(schema, null, "Role", false);
+            _ = new Entity(schema, user, "Role", false);
             // Assert
             Assert.Equal(new[] { user, role }, schema.Entities);
         }
@@ -36,9 +36,9 @@ namespace Allvis.Kaylee.Analyzer.Tests.Unit.Models
                 Name = "core"
             };
             // Act
-            var user = new Entity(schema, null, "User");
-            var userRole = new Entity(schema, user, "Role");
-            var userInfo = new Entity(schema, user, "Info");
+            var user = new Entity(schema, null, "User", false);
+            var userRole = new Entity(schema, user, "Role", false);
+            var userInfo = new Entity(schema, user, "Info", false);
             // Assert
             Assert.Equal(new[] { userRole, userInfo }, user.Children);
         }

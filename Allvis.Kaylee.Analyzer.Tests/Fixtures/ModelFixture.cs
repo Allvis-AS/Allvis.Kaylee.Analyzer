@@ -60,6 +60,16 @@ schema tenant {
             primary = TenantId;
         }
 
+        query Task {
+            fields {
+                TaskId INT;
+            }
+
+            keys {
+                primary = TaskId;
+            }
+        }
+
         entity Procedure {
             fields {
                 ProcedureId GUID {
